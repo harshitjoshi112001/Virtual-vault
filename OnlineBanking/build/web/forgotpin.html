@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot pin</title>
+    <link rel="shortcut icon" href="https://i.pinimg.com/originals/38/61/87/386187bbb3db15493f3e9f1a3997a83e.png"
+        type="image/x-icon">
+    <script>
+        function check(f1)
+        {
+            var acc = f1.account.value;
+            var email=f1.email.value;
+//            alert(acc+" & "+email);
+            var store="";
+            var msg="";
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function()
+            {
+              if(xhttp.readyState == 4 && xhttp.status == 200)
+              {
+                  store = this.responseText;
+                  msg = store.includes("Forgotpinotp");
+                  if(msg === true)
+                  {
+                      window.open(store, "_self");
+                  }
+                  else
+                      document.getElementById('demo').innerHTML = store;
+                  
+              }
+              else
+              {
+                  document.getElementById('demo').innerHTML = "Processing....";
+              }
+            };
+            
+            xhttp.open("GET", "Sendforgototp?account=" + acc + "&email=" + email, true);
+//            xhttp.open("GET" , "check.jsp?account="+acc,true);
+                xhttp.send();
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: auto;
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+            border: 5px solid rgb(66, 181, 252);
+            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            /* text-align: center; */
+            text-shadow: 2px 3px 4px violet;
+            text-decoration: overline;
+            margin-top: 20px;
+        }
+
+        .img {
+            width: 270px;
+            height: 270px;
+            /* background-color: white; */
+            background-image: url('https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png');
+            background-size: cover;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 20px 30px;
+            margin-top: 20px;
+        }
+
+        td{
+            font-size: 25px;
+            font-weight: bold;
+        }
+        #but {
+            background-color: rgb(192, 192, 246);
+            width: 100px;
+            height: 30px;
+            font-size: 16px;
+        }
+        #but:hover
+        {
+            cursor: pointer;
+            transform: scale(1.1);
+            box-shadow: 2px 3px 4px purple;
+        }
+        #account,#email{
+            height: 30px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 4px rgb(91, 37, 91),-3px 0px 4px rgb(91, 37, 91);
+        }
+        #account:hover, #email:hover{
+            cursor: pointer;
+        }
+        p{
+            text-align: center;
+            color: darkblue;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Forgot Pin</h1>
+        <div class="box">
+            <!--<form action="Sendforgototp" method="get">-->
+            <p id="demo" style="color: red;text-align: center"></p>
+            <form>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="account">Account-No.</label>
+                        </td>
+                        <td><input type="text" id="account" name="account" size="25" placeholder="enter account no" required></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email Id</label></td>
+                        <td><input type="text" id="email" name="email" size="25" placeholder="enter email" required></td>
+                        <td><input type="button" id="but" value="Send OTP" onclick="check(this.form)"></td>
+                    </tr>
+                </table>
+            </form>
+            <p>OTP will be send to your email</p>
+        </div>
+        <div class="img">
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>Savedata</servlet-name>
+        <servlet-class>mypack.Savedata</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Sendforgototp</servlet-name>
+        <servlet-class>mypack.Sendforgototp</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Checkotp</servlet-name>
+        <servlet-class>mypack.Checkotp</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Bookatm</servlet-name>
+        <servlet-class>mypack.Bookatm</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Savedata</servlet-name>
+        <url-pattern>/Savedata</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Sendforgototp</servlet-name>
+        <url-pattern>/Sendforgototp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Checkotp</servlet-name>
+        <url-pattern>/Checkotp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Bookatm</servlet-name>
+        <url-pattern>/Bookatm</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front</title>
+    <link rel="shortcut icon"
+        href="https://i.pinimg.com/originals/38/61/87/386187bbb3db15493f3e9f1a3997a83e.png"
+        type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-image: url('data:image/jpeg;base64,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');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 80%;
+            height: 80%;
+            background-color: rgba(240, 255, 255, 0.445);
+            border-radius: 20px;
+            box-shadow: 2px 3px 4px white, -2px -3px 4px white;
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+            box-shadow: 0px 3px 4px rgb(86, 86, 212);
+            border-radius: 20px;
+        }
+
+        nav {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        @media screen and (max-width:700px) {
+
+            header {
+                height: 120px;
+            }
+
+            nav {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            ul {
+                flex-direction: column;
+                /* font-size: 10px; */
+            }
+
+            .container {
+                height: 900px;
+            }
+
+            .box {
+                height: 780px;
+            }
+
+            .right a {
+                /* font-size: 15px; */
+            }
+
+            .inner {
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                /* background-color: aqua; */
+                display: flex;
+                align-items: center;
+                /* background-color: aqua; */
+            }
+
+
+            .left1 {
+                /* background-color: violet; */
+                width: 80%;
+                height: 50%;
+            }
+
+            .right1 {
+                /* background-color: brown; */
+                width: 100%;
+                height: 50%;
+                padding: 5px;
+                gap: 1px;
+                margin-bottom: 10px;
+            }
+
+            .right1 p {
+                text-align: center;
+
+            }
+
+            .left1 img {
+                width: 500px;
+                height: 100%;
+                border-radius: 20px;
+            }
+
+            .right1 h2 {
+                font-size: 15px;
+                text-decoration: overline;
+            }
+
+            .right1 p {
+                /* font-size: ; */
+            }
+        }
+
+        .left {
+            width: 60%;
+            height: 100%;
+            /* background-color: violet; */
+            padding: 15px;
+        }
+
+        .right {
+            width: 40%;
+            height: 100%;
+            /* background-color: tomato; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* flex-wrap: wrap; */
+        }
+
+        .right a {
+            color: rgb(255, 111, 0);
+            font-size: 28px;
+            box-shadow: 2px 3px 4px rgb(90, 188, 156),-2px -3px 4px rgb(90, 188, 156);
+        }
+
+
+        h1:hover {
+            transform: scale(1.1);
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+        }
+
+        ul li {
+            list-style: none;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        li:hover {
+            transform: scale(1.1);
+        }
+
+        a {
+            text-decoration: none;
+            color: darkorchid;
+            text-shadow: 2px 3px 4px violet;
+        }
+
+        main {
+            margin-top: 20px;
+            width: 100%;
+            height: 80%;
+        }
+
+        .inner {
+            width: 100%;
+            height: 100%;
+            /* background-color: aqua; */
+            display: flex;
+        }
+
+        .left1 {
+            width: 80%;
+            height: 100%;
+            /* background-color: tomato; */
+        }
+
+        .left1 img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .right1 {
+            width: 100%;
+            height: 100%;
+            /* background-color: rgb(255, 111, 0); */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        .right1 h2 {
+            font-size: 30px;
+            text-decoration: overline;
+        }
+
+        .right1 p {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .but {
+            width: 120px;
+            height: 28px;
+            font-size: 20px;
+            background-color: tomato;
+            border: 2px solid orangered;
+            border-radius: 10px;
+        }
+
+        .but:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <header>
+                <nav>
+                    <div class="left">
+                        <ul>
+                            <li><a href="">PRODUCTS</a></li>
+                            <li><a href="">SERVICES</a></li>
+                            <li><a href="">ABOUT</a></li>
+                            <li><a href="">CONTACTS</a></li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <h1><a href="./login.html">LOGIN</a></h1>
+                    </div>
+                </nav>
+            </header>
+            <main>
+                <div class="inner">
+                    <div class="left1">
+                        <img src="https://img.freepik.com/free-vector/bank-building-with-cityscape_1284-52265.jpg?w=2000"
+                            alt="">
+                    </div>
+                    <div class="right1">
+                        <h2>Online Banking</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium repudiandae ipsa
+                            reiciendis neque pariatur culpa ut optio, sunt rerum illum nulla laboriosam, sapiente ex
+                            nisi modi ea facilis. Corporis vel magnam doloremque est aspernatur praesentium ea in
+                            ducimus nobis!ffff</p>
+                        <input type="button" class="but" value="Read More">
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
